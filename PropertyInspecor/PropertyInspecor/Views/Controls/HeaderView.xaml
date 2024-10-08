@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PropertyInspecor.Views.Controls.HeaderView"
+             xmlns:controls="clr-namespace:PropertyInspecor.Views.Controls"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit">
+    <VerticalStackLayout>
+        <StackLayout
+            Padding="5"
+            HorizontalOptions="FillAndExpand"
+            Orientation="Horizontal">
+
+            <Image Margin="50,0,0,0"
+                HeightRequest="35"
+                HorizontalOptions="CenterAndExpand"
+                Source="spec_logo.png"
+                VerticalOptions="CenterAndExpand" />
+
+            <toolkit:AvatarView
+                BackgroundColor="{DynamicResource PrimaryColor}"
+                BorderColor="Transparent"
+                CornerRadius="40"
+                FontAttributes="Bold"
+                FontSize="Micro"
+                HeightRequest="40"
+                HorizontalOptions="End"
+                IsVisible="{Binding Initials, Converter={StaticResource isNotNullOrEmptyConverter}}"
+                Text="KM"
+                TextColor="{DynamicResource DefaultTextColor}"
+                WidthRequest="40" />
+
+        </StackLayout>
+
+        <Border
+            BackgroundColor="{DynamicResource Primary}"
+            HeightRequest="40"
+            HorizontalOptions="FillAndExpand"
+            StrokeThickness="0">
+            <Grid ColumnDefinitions="9*,Auto" HorizontalOptions="FillAndExpand">
+                <StackLayout Grid.Column="0" VerticalOptions="Center">
+                    <Label
+                        Margin="0,0,0,0"
+                        FontAttributes="Bold"
+                        FontSize="16"
+                        HorizontalOptions="FillAndExpand"
+                        LineBreakMode="TailTruncation"
+                        Text="{Binding welcomeText}"
+                        TextColor="White"
+                        VerticalTextAlignment="Center" />
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding HackCommand}" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+
+                <StackLayout
+                    Grid.Column="1"
+                    HorizontalOptions="StartAndExpand"
+                    IsVisible="{Binding HideBackArrow}"
+                    Orientation="Horizontal"
+                    Spacing="5"
+                    VerticalOptions="Center">
+                    <StackLayout IsVisible="{Binding HideBackArrow}" VerticalOptions="Center">
+                        <Label
+                            FontAttributes="Bold"
+                            HorizontalOptions="Start"
+                            Text="Logout"
+                            TextColor="{DynamicResource DefaultTextColor}"
+                            VerticalOptions="Center"
+                            VerticalTextAlignment="Start" />
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding HackCommand}" />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                    <Image
+                        Margin="0,0,10,0"
+                        HeightRequest="20"
+                        HorizontalOptions="End"
+                        VerticalOptions="Center">
+                        <Image.Source>
+                            <FontImageSource
+                                FontFamily="icomoon"
+                                Glyph="&#xec1c;"
+                                Color="{DynamicResource DefaultTextColor}" />
+                        </Image.Source>
+                    </Image>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding LogoutCommand}" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+            </Grid>
+        </Border>
+    </VerticalStackLayout>
+</ContentView>
+

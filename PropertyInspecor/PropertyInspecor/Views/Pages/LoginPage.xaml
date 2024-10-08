@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PropertyInspecor.Views.Pages.LoginPage"
+             Title="LoginPage">
+    
+        <Grid RowDefinitions=".6*,.1*,.1*,.1*,.1*" HorizontalOptions="FillAndExpand"
+                BackgroundColor="Transparent">
+            <StackLayout Grid.Row="0">
+                <Image Aspect="AspectFit" VerticalOptions="CenterAndExpand"
+                       Source="spec_logo" Margin="5,0,0,0"/>
+            </StackLayout>
+            <StackLayout Grid.Row="1" Padding="30">
+                <Label Text="Prepare For You Next Guest" FontSize="18"
+                       VerticalOptions="EndAndExpand"
+                       HorizontalOptions="CenterAndExpand"/>
+            </StackLayout>
+
+            <StackLayout Grid.Row="2">
+                <Button HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="StartAndExpand"
+                        Text="Login"
+                        TextColor="Black"
+                        FontSize="20"
+                        WidthRequest="350"
+                        BorderColor="Black" BorderWidth="3"
+                        BackgroundColor="Transparent"
+                        Clicked="Button_Clicked"/>
+            </StackLayout>
+            <StackLayout Grid.Row="3">
+                <Button HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="StartAndExpand"
+                        Text="Register"
+                        TextColor="Black"
+                        FontSize="20"
+                        WidthRequest="350"
+                        BorderColor="Black" BorderWidth="3"
+                        BackgroundColor="Transparent"/>
+            </StackLayout>
+            <StackLayout VerticalOptions="Center" HorizontalOptions="CenterAndExpand"
+                Grid.Row="4" Padding="5">
+                <Grid ColumnDefinitions="Auto,*">
+                    <Label Text="Powered By:" HorizontalOptions="Start"
+                           Grid.Column="0" FontSize="12"/>
+                    <Image Aspect="AspectFit" HeightRequest="12" VerticalOptions="Center"
+                       Source="marvtek_logo" HorizontalOptions="Start" Grid.Column="1"
+                       Margin="5,0,0,0"/>
+                </Grid>
+            </StackLayout>
+        </Grid>
+</ContentPage>

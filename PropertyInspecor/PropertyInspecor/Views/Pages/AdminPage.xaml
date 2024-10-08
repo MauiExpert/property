@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage x:Class="PropertyInspecor.Views.Pages.AdminPage"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:PropertyInspecor.Views.Pages" xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout
+            Padding="5"
+            HorizontalOptions="FillAndExpand"
+            Orientation="Horizontal">
+
+            <Image Margin="40,0,0,0"
+                HeightRequest="40"
+                HorizontalOptions="CenterAndExpand"
+                Source="spec_logo.png"
+                VerticalOptions="CenterAndExpand" />
+
+            <toolkit:AvatarView
+                BackgroundColor="{DynamicResource PrimaryColor}"
+                BorderColor="Black"
+                CornerRadius="40"
+                FontAttributes="Bold"
+                FontSize="Micro"
+                HeightRequest="40"
+                HorizontalOptions="End"
+                IsVisible="{Binding Initials, Converter={StaticResource isNotNullOrEmptyConverter}}"
+                Text="KM"
+                TextColor="{DynamicResource DefaultTextColor}"
+                WidthRequest="40" />
+
+        </StackLayout>
+            <Border
+            BackgroundColor="{DynamicResource Primary}"
+            HeightRequest="40"
+            HorizontalOptions="FillAndExpand"
+            StrokeThickness="0">
+            <Grid ColumnDefinitions="9*,Auto" HorizontalOptions="CenterAndExpand">
+                <StackLayout Grid.Column="0" VerticalOptions="Center">
+                    <Label
+                        Margin="0,0,0,0"
+                        FontAttributes="Bold"
+                        FontSize="16"
+                        HorizontalOptions="CenterAndExpand"
+                        LineBreakMode="TailTruncation"
+                        Text="Admin"
+                        TextColor="White"
+                        VerticalTextAlignment="Center" />
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding HackCommand}" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+            </Grid>
+        </Border>
+
+            <Label 
+                Text="AdminPage"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
